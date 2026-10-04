@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nicholas's Christmas List 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Outfit:wght@400;500;700&family=DM+Mono:wght@500&display=swap">
+<style>
+/* Layout: a gift-tag wall on deep pine — a giant stacked headline, a sizes "label", then tagged items grouped by shelf */
+:root{
+  --pine:#0d3b2a; --pine-deep:#082a1d; --holly:#d7263d; --holly-deep:#a3172b;
+  --gold:#f2c14e; --snow:#fbf7ef; --ink:#1c1a17; --tag:#fffaf0; --muted:#5d6b62;
+  --display:"Alfa Slab One", "Rockwell", Georgia, serif;
+  --body:"Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pine);color:var(--snow);font-family:var(--body);font-size:16px;line-height:1.55;overflow-x:hidden}
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+
+/* candy-stripe ribbon */
+.ribbon{height:18px;background:repeating-linear-gradient(-45deg,var(--holly) 0 16px,var(--snow) 16px 32px);position:relative;z-index:1}
+
+header.hero{padding-block:56px 40px;display:grid;gap:22px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.eyebrow span.dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+h1{font-family:var(--display);font-weight:400;margin:0;line-height:.88;letter-spacing:-.01em;text-wrap:balance;font-size:clamp(52px,12vw,150px)}
+h1 .l1{display:block;color:var(--snow)}
+h1 .l2{display:block;color:var(--holly);text-shadow:4px 4px 0 var(--pine-deep)}
+h1 .yr{display:inline-block;color:var(--pine);background:var(--gold);font-size:.42em;padding:.12em .3em .05em;border-radius:6px;vertical-align:middle;transform:rotate(-4deg);margin-left:.15em}
+.lede{max-width:58ch;font-size:clamp(17px,2.2vw,20px);color:#dfe9e2;margin:0}
+
+/* sizes label */
+.sizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-block:8px 48px}
+.size{background:var(--snow);color:var(--ink);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:18px;border:3px dashed var(--holly)}
+.size .big{font-family:var(--display);font-size:44px;line-height:1;color:var(--holly);min-width:2.2em;text-align:center}
+.size .what{font-weight:700;font-size:18px}
+.size .note{font-size:14px;color:var(--muted)}
+
+/* sections */
+section.shelf{margin-block:44px}
+.shelf-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid rgba(242,193,78,.35);padding-bottom:10px;margin-bottom:22px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4.5vw,42px);margin:0;color:var(--gold);text-wrap:balance}
+.count{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#b9cbbf}
+
+.tags{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+
+/* gift tag card */
+.tag{position:relative;background:var(--tag);color:var(--ink);border-radius:10px 10px 14px 14px;padding:34px 22px 20px;display:flex;flex-direction:column;gap:10px;min-width:0;
+  clip-path:polygon(18% 0,82% 0,100% 12%,100% 100%,0 100%,0 12%);
+  transition:transform .25s ease;}
+.tag::before{content:"";position:absolute;top:12px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--pine);box-shadow:0 0 0 3px var(--gold)}
+.tag-wrap{position:relative;filter:drop-shadow(0 10px 0 var(--pine-deep));transition:transform .25s ease}
+.tag-wrap:nth-child(odd){transform:rotate(-1.2deg)}
+.tag-wrap:nth-child(even){transform:rotate(1.1deg)}
+.tag-wrap:hover{transform:rotate(0) translateY(-4px)}
+.brand{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--holly-deep);margin-top:6px}
+.tag h3{font-family:var(--body);font-weight:700;font-size:19px;line-height:1.25;margin:0;text-wrap:balance}
+.tag p{margin:0;font-size:15px;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:4px 9px;border-radius:999px;background:#eef3ee;color:var(--pine)}
+.chip.size-chip{background:var(--holly);color:var(--snow)}
+.go{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:10px;background:var(--pine);color:var(--snow);text-decoration:none;font-weight:700;font-size:15px;transition:background .2s}
+.go:hover{background:var(--holly)}
+.go:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.go svg{width:16px;height:16px}
+
+/* featured watches: bigger tags */
+.tags.grand{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.tags.grand .tag{background:linear-gradient(180deg,#fff7e0,var(--tag))}
+.tags.grand .tag h3{font-family:var(--display);font-weight:400;font-size:26px}
+
+footer{margin-top:64px;text-align:center;display:grid;gap:8px;justify-items:center}
+footer .sign{font-family:var(--display);font-size:clamp(26px,5vw,40px);color:var(--snow)}
+footer small{font-family:var(--mono);color:#b9cbbf;letter-spacing:.08em;font-size:12px}
+
+@media (max-width:480px){
+  .tags,.tags.grand{grid-template-columns:1fr}
+  header.hero{padding-block:40px 28px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tag-wrap,.go{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon" aria-hidden="true"></div>
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow"><span>Dear Santa</span><span class="dot"></span><span>Delivery: 25 Dec 2026</span><span class="dot"></span><span>Malta</span></div>
+    <h1><span class="l1">Nicholas Cassar's</span><span class="l2">Christmas List <span class="yr">2026</span></span></h1>
+    <p class="lede">Fifteen things I'd love to find under the tree this year. Every tag links straight to the shop, and the sizes are below so nobody has to guess.</p>
+  </header>
+
+  <div class="sizes" aria-label="Sizes">
+    <div class="size"><div class="big">L</div><div><div class="what">Clothing</div><div class="note">Always size Large</div></div></div>
+    <div class="size"><div class="big">41</div><div><div class="what">Shoes</div><div class="note">UK 7 / EU 41</div></div></div>
+  </div>
+
+  <section class="shelf" aria-labelledby="h-watches">
+    <div class="shelf-head"><h2 id="h-watches">Top of the List</h2><span class="count">2 watches</span></div>
+    <div class="tags grand">
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Patek Philippe · via Farfetch</div>
+        <h3>Nautilus 44mm</h3>
+        <p>Pre-owned, 18kt white gold with a sapphire blue dial. Comes with original box and papers.</p>
+        <div class="meta"><span class="chip">Ref. 5976/1G-001</span><span class="chip">Pre-owned</span></div>
+        <a class="go" href="https://www.farfetch.com/mt/shopping/men/patek-philippe-pre-owned-pre-owned-nautilus-44mm-item-21979160.aspx" target="_blank" rel="noopener">View at Farfetch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Rolex · via Farfetch</div>
+        <h3>Submariner 40mm "Kermit"</h3>
+        <p>Pre-owned Submariner Date with the green dial and green ceramic bezel on an Oyster bracelet.</p>
+        <div class="meta"><span class="chip">Ref. 116610LV</span><span class="chip">Pre-owned</span></div>
+        <a class="go" href="https://www.farfetch.com/mt/shopping/men/rolex-submariner-40mm-watch-item-36378156.aspx" target="_blank" rel="noopener">View at Farfetch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+    </div>
+  </section>
+
+  <section class="shelf" aria-labelledby="h-football">
+    <div class="shelf-head"><h2 id="h-football">Glory Glory Man United</h2><span class="count">2 retro shirts</span></div>
+    <div class="tags">
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Manchester United Store</div>
+        <h3>2007–09 Retro Home Champions League Final Shirt</h3>
+        <p>The red home shirt from the Moscow final.</p>
+        <div class="meta"><span class="chip size-chip">Size L</span><span class="chip">Red</span></div>
+        <a class="go" href="https://store.manutd.com/en/p/manchester-united-2007-09-retro-home-champions-league-final-shirt-red-5393" target="_blank" rel="noopener">View at United Store <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Manchester United Store</div>
+        <h3>2002–04 Retro Home Shirt</h3>
+        <p>The classic early-2000s red home shirt.</p>
+        <div class="meta"><span class="chip size-chip">Size L</span><span class="chip">Red</span></div>
+        <a class="go" href="https://store.manutd.com/en/p/manchester-united-2002-04-retro-home-shirt-red-5396" target="_blank" rel="noopener">View at United Store <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+    </div>
+  </section>
+
+  <section class="shelf" aria-labelledby="h-shoes">
+    <div class="shelf-head"><h2 id="h-shoes">Fresh Kicks</h2><span class="count">2 pairs from Guess</span></div>
+    <div class="tags">
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Guess</div>
+        <h3>Elba Faux Leather Sneakers</h3>
+        <p>Clean low-top sneakers in beige faux leather.</p>
+        <div class="meta"><span class="chip size-chip">Size 41 (UK 7)</span><span class="chip">Beige / brown</span></div>
+        <a class="go" href="https://www.guess.eu/en-mt/guess/men/shoes-and-accessories/shoes/elba-faux-leather-sneakers-beige/FMPELAFAL12-BEIBR.html" target="_blank" rel="noopener">View at Guess <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Guess</div>
+        <h3>Elba 4G Logo Sneakers</h3>
+        <p>The Elba sneaker with the all-over 4G logo print.</p>
+        <div class="meta"><span class="chip size-chip">Size 41 (UK 7)</span><span class="chip">Beige / brown</span></div>
+        <a class="go" href="https://www.guess.eu/en-mt/guess/men/shoes-and-accessories/shoes/elba-4g-logo-sneakers-beige/FMPVIBFAL12-BEIBR.html" target="_blank" rel="noopener">View at Guess <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+    </div>
+  </section>
+
+  <section class="shelf" aria-labelledby="h-guesswatch">
+    <div class="shelf-head"><h2 id="h-guesswatch">Everyday Watches</h2><span class="count">2 from Guess</span></div>
+    <div class="tags">
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Guess</div>
+        <h3>Recycled Steel Analogue Watch, 38mm</h3>
+        <p>Silver-tone analogue watch in recycled steel.</p>
+        <div class="meta"><span class="chip">Silver</span><span class="chip">38mm</span><span class="chip">GW0977</span></div>
+        <a class="go" href="https://www.guess.eu/en-mt/guess/men/shoes-and-accessories/watches/recycled-steel-analogue-watch-38-mm-silver/GW0977FMSWC-G4.html" target="_blank" rel="noopener">View at Guess <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Guess</div>
+        <h3>Stainless Steel Analogue Watch, 38mm</h3>
+        <p>Gold-tone analogue watch in stainless steel.</p>
+        <div class="meta"><span class="chip">Gold</span><span class="chip">38mm</span><span class="chip">GW1070</span></div>
+        <a class="go" href="https://www.guess.eu/en-mt/guess/men/shoes-and-accessories/watches/stainless-steel-analogue-watch-38-mm-gold/GW1070FMSWC-G2.html" target="_blank" rel="noopener">View at Guess <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+    </div>
+  </section>
+
+  <section class="shelf" aria-labelledby="h-bags">
+    <div class="shelf-head"><h2 id="h-bags">Bags</h2><span class="count">3 from Harmont &amp; Blaine</span></div>
+    <div class="tags">
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Harmont &amp; Blaine</div>
+        <h3>Men's Black Shoulder Bag</h3>
+        <p>Everyday shoulder bag in black.</p>
+        <div class="meta"><span class="chip">Black</span><span class="chip">U0R011H1Q004</span></div>
+        <a class="go" href="https://www.harmontblaine.com/mt/en/man/men%27s-accessories/men%27s-bags-and-leather-goods/men%27s-black-shoulder-bag-black-U0R011H1Q004999.html" target="_blank" rel="noopener">View at Harmont &amp; Blaine <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Harmont &amp; Blaine</div>
+        <h3>Flat Cross-Body Bag, Dachshund Print</h3>
+        <p>Black flat cross-body with the all-over dachshund print.</p>
+        <div class="meta"><span class="chip">Black</span><span class="chip">U0R018H3K002</span></div>
+        <a class="go" href="https://www.harmontblaine.com/mt/en/man/men%27s-accessories/men%27s-bags-and-leather-goods/men%27s-black-flat-cross-body-bag-with-all-over-dachshund-print-black-U0R018H3K002999.html" target="_blank" rel="noopener">View at Harmont &amp; Blaine <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Harmont &amp; Blaine</div>
+        <h3>Dark Blue Reporter Bag</h3>
+        <p>Reporter-style messenger bag in navy blue.</p>
+        <div class="meta"><span class="chip">Navy blue</span><span class="chip">U0R025H3L001</span></div>
+        <a class="go" href="https://www.harmontblaine.com/mt/en/man/men%27s-accessories/men%27s-bags-and-leather-goods/men%27s-dark-blue-reporter-bag-navy-blue-U0R025H3L001801.html" target="_blank" rel="noopener">View at Harmont &amp; Blaine <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+    </div>
+  </section>
+
+  <section class="shelf" aria-labelledby="h-more">
+    <div class="shelf-head"><h2 id="h-more">Stocking Fillers</h2><span class="count">4 smaller gifts</span></div>
+    <div class="tags">
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Maison Francis Kurkdjian</div>
+        <h3>Gentle Fluidity Gold Edition Hand &amp; Body Cleansing Gel</h3>
+        <p>The Gentle Fluidity Gold scent as a hand and body wash.</p>
+        <div class="meta"><span class="chip">RA91287</span></div>
+        <a class="go" href="https://www.franciskurkdjian.com/eu-en/p/gentle-fluidity-gold-edition---hand-body-cleansing-gel-RA91287.html" target="_blank" rel="noopener">View at MFK <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Funko Pop! · via Amazon.de</div>
+        <h3>Hakuna Matata Simba, 30th Anniversary Special Edition</h3>
+        <p>The Lion King collectible vinyl figure.</p>
+        <div class="meta"><span class="chip">No. 1313</span></div>
+        <a class="go" href="https://www.amazon.de/-/en/Funko-Hakuna-Special-No-1313-Anniversary/dp/B0BY2SCK5L" target="_blank" rel="noopener">View on Amazon <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Funko Pop! · via Amazon.de</div>
+        <h3>Disney Simba Special Edition Collectable</h3>
+        <p>Another Lion King figure for the shelf.</p>
+        <div class="meta"><span class="chip">No. 1733</span></div>
+        <a class="go" href="https://www.amazon.de/-/en/Funko-Disney-1733-Special-Collectable/dp/B0GYYH3911" target="_blank" rel="noopener">View on Amazon <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+      <div class="tag-wrap"><article class="tag">
+        <div class="brand">Sonoff · via Klikk</div>
+        <h3>TX T2 Wi-Fi Smart Switch</h3>
+        <p>Smart wall light switch you can control from your phone or a remote.</p>
+        <div class="meta"><span class="chip">Wi-Fi</span><span class="chip">Remote support</span></div>
+        <a class="go" href="https://www.klikk.com.mt/products/sonoff-tx-t2-wi-fi-smart-switch-with-remote-control-support" target="_blank" rel="noopener">View at Klikk <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sign">Thank you &amp; Merry Christmas!</div>
+    <small>— NICHOLAS · CHRISTMAS 2026</small>
+  </footer>
+</div>
+<div class="ribbon" aria-hidden="true"></div>
+
+<script>
+(function(){
+  var c=document.getElementById('snow'); if(!c||!c.getContext) return;
+  var x=c.getContext('2d'), flakes=[], W=0, H=0;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){var d=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);}
+  size(); addEventListener('resize',size);
+  var n=Math.min(120,Math.round(innerWidth/9));
+  for(var i=0;i<n;i++)flakes.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.6+0.8,s:Math.random()*0.6+0.3,d:Math.random()*Math.PI*2});
+  function draw(){
+    x.clearRect(0,0,W,H); x.fillStyle='rgba(251,247,239,0.75)';
+    for(var i=0;i<flakes.length;i++){var f=flakes[i];x.beginPath();x.arc(f.x,f.y,f.r,0,Math.PI*2);x.fill();}
+  }
+  function step(){
+    for(var i=0;i<flakes.length;i++){var f=flakes[i];f.d+=0.01;f.y+=f.s;f.x+=Math.sin(f.d)*0.4;if(f.y>H+5){f.y=-5;f.x=Math.random()*W;}}
+    draw(); requestAnimationFrame(step);
+  }
+  if(reduce) draw(); else requestAnimationFrame(step);
+})();
+</script>
+</body>
+</html>
